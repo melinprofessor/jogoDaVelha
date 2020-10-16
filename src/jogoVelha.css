@@ -37,7 +37,8 @@ body {
     cursor: pointer;
 }
 
-.cell:hover {
+
+.cell:not(.X):not(.O):hover {
     background-color: #00000090;
 }
 
@@ -47,4 +48,12 @@ body {
 
 .O {
     background-color: blue;
+}
+
+.cell.O, .cell.X, .game-over .cell {
+    cursor: not-allowed;
+}
+
+.game-over {
+    opacity: 0.9;
 }
