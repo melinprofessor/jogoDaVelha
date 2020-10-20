@@ -52,12 +52,26 @@ function JogoVelha() {
     });
   };
 
+  const resetGame = () => {
+    setCurrentPlayer(_X);
+    setBoard(emptyBoard);
+    setWinner('');
+  };
+
+  const check = () => {
+    if (board.every((item) => item !== '') && winner !== '') {
+      setWinner('E');
+      console.log('Entrouuuuuuu')
+    }
+  };
+
+  
   useEffect(checkWinner, [board]);
 
   return (
     <main>
       <h1 className="title">Jogo da Velha</h1>
-      <div className={`board ${winner !== '' ? 'game-over': ''}`}>
+      <div className={`board ${winner !== '' ? 'game-over' : ''}`}>
         {board.map((item, index) => (
           <div
             className={`cell ${item}`}
@@ -68,9 +82,14 @@ function JogoVelha() {
           </div>
         ))}
       </div>
-      <footer>
-        {winner} venceu!
-      </footer>
+      {winner !== '' && (
+        <footer>
+          <h2 className="winner-message">
+            <span className={winner}>{winner}</span> venceu!
+          </h2>
+          <button onClick={resetGame}>Recomeçar Jogo!</button>
+        </footer>
+      )}
     </main>
   );
 }

@@ -42,11 +42,11 @@ body {
     background-color: #00000090;
 }
 
-.X {
+.cell.X {
     background-color: red;
 }
 
-.O {
+.cell.O {
     background-color: blue;
 }
 
@@ -56,4 +56,29 @@ body {
 
 .game-over {
     opacity: 0.9;
+}
+
+.winner-message {
+    margin: 2rem;
+}
+
+footer {
+    text-align: center;
+}
+
+.winner-message span.O {
+    color: blue;
+}
+
+.winner-message span.X {
+    color:red;
+}
+
+button {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1.2rem;
 }
